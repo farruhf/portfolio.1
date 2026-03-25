@@ -681,16 +681,20 @@
     return path + (page > 1 ? "#page=" + page : "");
   }
 
-  function applyToViewer(iframeEl, phEl, src) {
-    if (src) {
-      iframeEl.src = src;
-      iframeEl.style.display = "block";
-      phEl.style.display     = "none";
-    } else {
-      iframeEl.style.display = "none";
-      phEl.style.display     = "block";
-    }
+function applyToViewer(iframeEl, phEl, src) {
+  if (src) {
+    iframeEl.src = "";          // force reset
+    setTimeout(() => {
+      iframeEl.src = src;       // reload with new page
+    }, 50);
+
+    iframeEl.style.display = "block";
+    phEl.style.display     = "none";
+  } else {
+    iframeEl.style.display = "none";
+    phEl.style.display     = "block";
   }
+}
 
   // Portfolio & nav download buttons
   const portIframe  = document.getElementById("portfolio-iframe");
