@@ -20,7 +20,21 @@
       --font-display: 'Cormorant Garamond', serif;
       --font-mono: 'DM Mono', monospace;
     }
+  .mobile-note {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+  text-align: center;
+  padding: 0.6rem 1rem;
+}
 
+/* Show ONLY on mobile */
+@media (max-width: 768px) {
+  .mobile-note {
+    display: block;
+  }
+}
     html { scroll-behavior: smooth; }
 
     body {
@@ -504,6 +518,9 @@
       </div>
     </div>
     <div class="pdf-body">
+      <p class="mobile-note">
+  If you're viewing this on a phone or tablet, download the file for the full experience.
+</p>
       <iframe id="portfolio-iframe" title="Portfolio"></iframe>
       <div class="pdf-ph" id="portfolio-ph">
         <div class="pdf-ph-icon">📐</div>
